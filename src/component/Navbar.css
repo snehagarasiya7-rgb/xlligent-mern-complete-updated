@@ -1,0 +1,251 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  width: 100%;
+  background: #fff;
+  border-bottom: 1px solid transparent;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.navbar.is-scrolled {
+  box-shadow: var(--shadow-sm);
+  border-bottom-color: var(--border);
+}
+
+.navbar-inner {
+  height: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.logo img {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+}
+
+.nav-links {
+  display: flex;
+  gap: 26px;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--navy-800);
+  font-size: 16px;
+  font-weight: 600;
+  transition: color 0.2s ease;
+  position: relative;
+  padding: 6px 0;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background: var(--blue-500);
+  transition: width 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--blue-600);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navbar-phone {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy-800);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.navbar-phone svg {
+  color: var(--blue-500);
+}
+
+.navbar-cta {
+  padding: 12px 26px;
+  font-size: 15px;
+}
+
+.menu-btn {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 26px;
+  color: var(--navy-800);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+
+/* ================= SIDE MENU ================= */
+
+.side-menu-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 15, 44, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+
+.side-menu-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -420px;
+  width: 380px;
+  max-width: 88vw;
+  height: 100vh;
+  background: #fff;
+  padding: 40px 32px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  transition: right 0.35s ease;
+  z-index: 1001;
+  box-shadow: var(--shadow-lg);
+}
+
+.side-menu.active {
+  right: 0;
+}
+
+.menu-logo {
+  height: 36px;
+  width: auto;
+  margin-bottom: 36px;
+}
+
+.side-menu-links {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 36px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border);
+}
+
+.side-menu-links a {
+  text-decoration: none;
+  color: var(--navy-800);
+  font-size: 20px;
+  font-weight: 700;
+  padding: 6px 0;
+}
+
+.side-menu-links a:hover {
+  color: var(--blue-600);
+}
+
+.side-menu h3 {
+  color: var(--blue-600);
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.contact-item svg {
+  font-size: 20px;
+  color: var(--blue-500);
+  min-width: 20px;
+  margin-top: 4px;
+}
+
+.contact-item span {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-body);
+}
+
+.location-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.location-text p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-body);
+}
+
+.location-text p:first-child {
+  font-weight: 700;
+  color: var(--navy-800);
+  margin-bottom: 4px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--navy-800);
+  line-height: 1;
+}
+
+.side-menu-cta {
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+  .nav-links,
+  .navbar-phone {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-inner {
+    height: 68px;
+  }
+  .logo img {
+    height: 32px;
+  }
+  .navbar-cta {
+    display: none;
+  }
+}

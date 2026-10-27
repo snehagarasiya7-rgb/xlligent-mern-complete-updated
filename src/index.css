@@ -1,0 +1,319 @@
+:root {
+  /* Brand palette — sourced from the Xlligent logo (navy + sky blue) */
+  --navy-900: #0a0f2c;
+  --navy-800: #0d1b2a;
+  --navy-700: #14213d;
+  --blue-600: #0090d8;
+  --blue-500: #00a3ff;
+  --blue-400: #33bfff;
+  --blue-tint: #f2faff;
+
+  --text-heading: var(--navy-800);
+  --text-body: #4a5568;
+  --text-muted: #78859a;
+  --bg: #ffffff;
+  --bg-alt: #f7fafc;
+  --border: #e6ebf1;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+
+  --shadow-sm: 0 2px 8px rgba(13, 27, 42, 0.06);
+  --shadow-md: 0 12px 30px rgba(13, 27, 42, 0.10);
+  --shadow-lg: 0 24px 60px rgba(13, 27, 42, 0.14);
+
+  --container: 1200px;
+  --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  font-family: var(--sans);
+  color: var(--text-body);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--sans);
+  color: var(--text-heading);
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 90px 0;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 56px 0;
+  }
+}
+
+.eyebrow {
+  display: inline-block;
+  color: var(--blue-600);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.section-heading {
+  font-size: 38px;
+  max-width: 640px;
+}
+
+.section-heading.center {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section-sub {
+  color: var(--text-muted);
+  font-size: 18px;
+  max-width: 620px;
+  margin-top: 16px;
+  line-height: 1.7;
+}
+
+.section-sub.center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .section-heading {
+    font-size: 28px;
+  }
+  .section-sub {
+    font-size: 16px;
+  }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 15px 32px;
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  border: 2px solid transparent;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: var(--blue-500);
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(0, 163, 255, 0.28);
+}
+
+.btn-primary:hover {
+  background: var(--blue-600);
+  box-shadow: 0 14px 30px rgba(0, 163, 255, 0.35);
+}
+
+.btn-secondary {
+  background: transparent;
+  border-color: var(--blue-500);
+  color: var(--blue-600);
+}
+
+.btn-secondary:hover {
+  background: var(--blue-tint);
+}
+
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #fff;
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* ============ SHARED: PAGE HERO (About / Products / Contact) ============ */
+.page-hero {
+  position: relative;
+  background: linear-gradient(180deg, var(--blue-tint) 0%, #ffffff 100%);
+  padding: 72px 0 56px;
+}
+
+.page-hero.has-media {
+  padding: 96px 0 80px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.page-hero.has-media::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, rgba(6, 18, 41, 0.92) 0%, rgba(6, 18, 41, 0.72) 45%, rgba(6, 18, 41, 0.35) 100%);
+  z-index: 0;
+}
+
+.page-hero.has-media .container {
+  position: relative;
+  z-index: 1;
+}
+
+.page-hero.has-media .eyebrow {
+  color: #7cc4ff;
+}
+
+.page-hero.has-media h1 {
+  color: #fff;
+}
+
+.page-hero.has-media p {
+  color: #cfd9ea;
+}
+
+.page-hero .eyebrow {
+  display: block;
+}
+
+.page-hero h1 {
+  font-size: 42px;
+  max-width: 760px;
+  margin-bottom: 18px;
+}
+
+.page-hero p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--text-body);
+  max-width: 680px;
+}
+
+@media (max-width: 768px) {
+  .page-hero h1 {
+    font-size: 30px;
+  }
+  .page-hero p {
+    font-size: 16px;
+  }
+}
+
+/* ============ SHARED: CTA BAND ============ */
+.cta-section {
+  background: linear-gradient(135deg, var(--navy-900), var(--navy-700));
+  padding: 80px 0;
+}
+
+.cta-inner {
+  text-align: center;
+}
+
+.cta-inner h2 {
+  color: #fff;
+  font-size: 34px;
+  max-width: 700px;
+  margin: 0 auto 16px;
+}
+
+.cta-inner p {
+  color: #b7c2d6;
+  font-size: 17px;
+  max-width: 560px;
+  margin: 0 auto 32px;
+}
+
+.cta-btns {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 640px) {
+  .cta-inner h2 {
+    font-size: 26px;
+  }
+}
+
+/* AI Enabled badge — used on product cards, slides and detail pages */
+.ai-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--blue-tint);
+  color: var(--blue-600);
+  font-weight: 700;
+  font-size: 12.5px;
+  letter-spacing: 0.02em;
+  padding: 5px 12px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.ai-badge.is-clickable:hover,
+.ai-badge.is-clickable:focus-visible {
+  background: var(--blue-600);
+  color: #fff;
+  transform: translateY(-1px);
+}
